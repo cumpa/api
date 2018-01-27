@@ -8,6 +8,11 @@ require 'config.php';
 
 $app = new \Slim\App($config);
 
+var_dump($app->getContainer('config')->get('db'));
+//die();
+
+$db = new DB($app->getContainer('config')->get('db'));
+
 $app->get('/', function (Request $request, Response $response, array $args){
     $message = 'Welcome';
     return $response->getBody()->write($message);

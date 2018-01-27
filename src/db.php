@@ -13,7 +13,7 @@ class DB
 
     public function __construct(array $dbconfig)
     {
-        $pdo = new PDO($dbconfig['driver'] . ':host=' . $dbconfig['host'] . ';dbname=' . $dbconfig['dbname'], $dbconfig['user'], $dbconfig['password']);
+        $pdo = new PDO($dbconfig['driver'] . ':host=' . $dbconfig['host'] . ';dbname=' . $dbconfig['dbname'], $dbconfig['username'], $dbconfig['password']);
     }
 
     public function select($query, $args)
