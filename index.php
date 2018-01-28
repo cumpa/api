@@ -8,7 +8,7 @@ require 'config.php';
 
 $app = new \Slim\App($config);
 
-var_dump($app->getContainer('config')->get('db'));
+//var_dump($app->getContainer('config')->get('db'));
 //die();
 
 $db = new DB($app->getContainer('config')->get('db'));
@@ -18,18 +18,10 @@ $app->get('/', function (Request $request, Response $response, array $args){
     return $response->getBody()->write($message);
 });
 
-$app->get('/hello/{name}', function (Request $request, Response $response, array $args) {
+$app->get('/{message}/{name}', function (Request $request, Response $response, array $args) {
     $name = $args['name'];
-    $matches = [];
-    preg_match('/:[a-zA-Z]*/',$name,$matches);
-    //$response->getBody()->write("Hello, $name");
-    $arr = ['dobre ja' => "Hello, $name"];
-    $arr = $matches;
-    //for ($i='a'; $i < 'z'; $i++) {
-    //  # code...
-    //  $arr[$i] = "pismeno - $i";
-//
-    //}
+    $message = $args['message'];
+    $arr = ['dobre ja' => "$message, $name"];
     $response->getBody()->write(json_encode($arr));
     return $response;
 });

@@ -12,7 +12,7 @@ $config = [
     ],
     'db' => [
         'host' => 'localhost',
-        'dbname' => 'api-db',
+        'dbname' => 'todos-api',
         'username' => 'root',
         'password' => '',
         'driver' => 'mysql'
